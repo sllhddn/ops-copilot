@@ -1,0 +1,47 @@
+{
+  "name": "ops-copilot-api",
+  "version": "1.0.0",
+  "description": "RAG + tool-calling agent API for operations runbooks and incidents",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && node scripts/copy-assets.mjs",
+    "start": "node dist/main.js",
+    "dev": "tsx watch src/main.ts",
+    "seed": "tsx src/seed/seed.ts",
+    "eval": "tsx src/evals/run-evals.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "seed:dist": "node dist/seed/seed.js"
+  },
+  "author": "Sallehuddin Mohd Zakinuddin",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.5.0",
+    "@nestjs/common": "^12.3.3",
+    "@nestjs/core": "^12.3.3",
+    "@nestjs/platform-express": "^12.3.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.15.1",
+    "pg": "^8.23.1",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "@electric-sql/pglite": "^0.5.15",
+    "@electric-sql/pglite-pgvector": "^0.0.16"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^12.3.3",
+    "@swc/core": "^1.16.21",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.6",
+    "@types/pg": "^8.23.1",
+    "@types/supertest": "^7.2.1",
+    "supertest": "^7.3.1",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "unplugin-swc": "^2.0.0",
+    "vitest": "^5.1.0"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "retrieval": [
+    { "q": "What order do we switch over during a DR drill?", "expect": "Disaster Recovery Failover Drill" },
+    { "q": "What is the RTO and RPO for the failover?", "expect": "Disaster Recovery Failover Drill" },
+    { "q": "Inserts fail with ORA-00001 after a data migration, what do I do?", "expect": "Duplicate Key Errors After Data Loads (Sequence Drift)" },
+    { "q": "How do I reset a PostgreSQL sequence with setval?", "expect": "Duplicate Key Errors After Data Loads (Sequence Drift)" },
+    { "q": "When should we remove the maintenance page after a release?", "expect": "Release Night Runbook" },
+    { "q": "How do we roll back a failed production release?", "expect": "Release Night Runbook" },
+    { "q": "How many days before expiry do we renew TLS certificates?", "expect": "TLS Certificate Renewal" },
+    { "q": "The payment gateway client certificate needs renewing", "expect": "TLS Certificate Renewal" },
+    { "q": "Release upload to Nexus broke halfway with a network error", "expect": "Failed Release Upload to the Artifact Repository" },
+    { "q": "Can I bump the version to get around a partial upload?", "expect": "Failed Release Upload to the Artifact Repository" },
+    { "q": "java.lang.OutOfMemoryError on the app server, take a heap dump?", "expect": "Application Server Out of Memory" },
+    { "q": "Pages time out and the JVM heap stays full", "expect": "Application Server Out of Memory" }
+  ],
+  "out_of_scope": [
+    "What is the office wifi password?",
+    "Who won the football match last night?",
+    "Recommend a good laptop for gaming"
+  ]
+}

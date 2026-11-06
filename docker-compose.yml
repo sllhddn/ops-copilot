@@ -1,0 +1,44 @@
+# Full stack: PostgreSQL 16 with pgvector, the NestJS API and the React UI.
+# Run:  docker compose up --build   then open http://localhost:8080
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: opscopilot
+      POSTGRES_USER: opscopilot
+      POSTGRES_PASSWORD: opscopilot   # local demo only
+    volumes: [dbdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U opscopilot"]
+      interval: 5s
+      retries: 10
+
+  api:
+    build: ./api
+    environment:
+      DATABASE_URL: postgres://opscopilot:opscopilot@db:5432/opscopilot
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      ANTHROPIC_MODEL: ${ANTHROPIC_MODEL:-claude-sonnet-4-5}
+      CORS_ORIGIN: http://localhost:8080
+    depends_on:
+      db: { condition: service_healthy }
+    ports: ["3000:3000"]
+
+  seed:
+    build: ./api
+    command: ["node", "dist/seed/seed.js"]
+    environment:
+      DATABASE_URL: postgres://opscopilot:opscopilot@db:5432/opscopilot
+    depends_on:
+      api: { condition: service_healthy }   # the API applies migrations first
+    restart: "no"
+
+  web:
+    build: ./web
+    environment:
+      API_UPSTREAM: http://api:3000
+    depends_on: [api]
+    ports: ["8080:80"]
+
+volumes:
+  dbdata:

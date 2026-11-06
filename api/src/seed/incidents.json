@@ -1,0 +1,10 @@
+[
+  { "ref": "INC-1042", "title": "Duplicate key errors when submitting applications", "service": "Applications", "severity": "P2", "status": "OPEN",
+    "summary": "Users in one region cannot submit new applications since this morning's data load." },
+  { "ref": "INC-1043", "title": "Search page slow during peak hours", "service": "Search", "severity": "P3", "status": "MITIGATED",
+    "summary": "Response time above 8 seconds between 10:00 and 12:00; extra node added." },
+  { "ref": "INC-1044", "title": "Payment gateway rejects transactions", "service": "Payments", "severity": "P1", "status": "OPEN",
+    "summary": "All card payments fail with a TLS handshake error after midnight." },
+  { "ref": "INC-1039", "title": "Report export times out", "service": "Reports", "severity": "P4", "status": "RESOLVED",
+    "summary": "Monthly export fixed by adding an index on the report date column." }
+]
